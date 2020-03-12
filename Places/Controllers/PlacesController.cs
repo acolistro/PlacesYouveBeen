@@ -15,12 +15,12 @@ namespace Diary.Controllers
     }
 
     [HttpGet("/places/new")]
-    public ActionResult CreateForm()
+    public ActionResult New()
     {
       return View();
     }
 
-    [HttpPost("/places")]
+    [HttpPost("/places/index")]
     public ActionResult Create(string cityName, int duration, string travelPartner, string journalEntry, int id)
     {
       Place myPlace = new Place(cityName, duration, travelPartner, journalEntry, id);

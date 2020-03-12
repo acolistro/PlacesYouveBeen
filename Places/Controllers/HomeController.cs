@@ -14,13 +14,13 @@ namespace Diary.Controllers
       return View(allPlaces);
     }
 
-    [HttpGet("/places/new")]
+    [HttpGet("/places/createform")]
     public ActionResult CreateForm()
     {
       return View();
     }
 
-    [HttpPost("/places")]
+    [HttpPost("home/places")]
     public ActionResult Create(string cityName, int duration, string travelPartner, string journalEntry, int id)
     {
       Place myPlace = new Place(cityName, duration, travelPartner, journalEntry, id);
