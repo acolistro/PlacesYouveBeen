@@ -17,7 +17,7 @@ namespace Diary.Tests
     [TestMethod]
     public void PlaceConstructor_CreatesInstanceOfPlace_Place()
     {
-      Place newPlace = new Place("test");
+      Place newPlace = new Place("test", 3, "test", "test", 1);
       Assert.AreEqual(typeof(Place), newPlace.GetType());
     }
 
@@ -26,10 +26,19 @@ namespace Diary.Tests
     {
       //Arrange
       string cityName = "Boston.";
+      int duration = 5;
+      string travelPartner = "Ted";
+      string journalEntry = "abcd";
+      int id = 1;
+
 
       //Act
-      Place newPlace = new Place(cityName);
+      Place newPlace = new Place(cityName, duration, travelPartner, journalEntry, id);
       string result = newPlace.CityName;
+      int resultD = newPlace.Duration;
+      string resultTP = newPlace.TravelPartner;
+      string resultJE = newPlace.JournalEntry;
+      int resultID = newPlace.Id;
 
       //Assert
       Assert.AreEqual(cityName, result);
@@ -40,12 +49,28 @@ namespace Diary.Tests
     {
       //Arrange
       string cityName = "Boston.";
-      Place newPlace = new Place(cityName);
+      int duration = 5;
+      string travelPartner = "Ted";
+      string journalEntry = "abcd";
+      int id = 1;
+      Place newPlace = new Place(cityName, duration, travelPartner, journalEntry, id);
 
       //Act
       string updatedCityName = "Paris";
+      int updatedDuration = 5;
+      string updatedTravelPartner = "Ted";
+      string updatedJournalEntry = "abcd";
+      int updatedId = 1;
       newPlace.CityName = updatedCityName;
+      newPlace.Duration = updatedDuration;
+      newPlace.TravelPartner = updatedTravelPartner;
+      newPlace.JournalEntry = updatedJournalEntry;
+      newPlace.Id = updatedId;
       string result = newPlace.CityName;
+      int resultD = newPlace.Duration;
+      string resultTP = newPlace.TravelPartner;
+      string resultJE = newPlace.JournalEntry;
+      int resultID = newPlace.Id;
 
       //Assert
       Assert.AreEqual(updatedCityName, result);
@@ -70,8 +95,16 @@ namespace Diary.Tests
       //Arrange
       string cityName01 = "Boston";
       string cityName02 = "Paris";
-      Place newPlace1 = new Place(cityName01);
-      Place newPlace2 = new Place(cityName02);
+      int duration01 = 3;
+      int duration02 = 4;
+      string travelPartner01 = "Fred";
+      string travelPartner02 = "Greg";
+      string journalEntry01 = "asdf";
+      string journalEntry02 = "lkjh";
+      int id01 = 1;
+      int id02 = 2;
+      Place newPlace1 = new Place(cityName01, duration01, travelPartner01, journalEntry01, id01);
+      Place newPlace2 = new Place(cityName02, duration02, travelPartner02, journalEntry02, id02);
       List<Place> newList = new List<Place> { newPlace1, newPlace2 };
 
       //Act
@@ -86,11 +119,18 @@ namespace Diary.Tests
     {
       //Arrange
       string cityName = "Boston";
-      Place newPlace = new Place(cityName);
+      int duration = 3;
+      string travelPartner = "Fred";
+      string journalEntry = "asdf";
+      int id = 1;
+      Place newPlace = new Place(cityName, duration, travelPartner, journalEntry, id);
 
       //Act
+      string resultCN = newPlace.CityName;
+      int resultD = newPlace.Duration;
+      string resultTP = newPlace.TravelPartner;
+      string resultJE = newPlace.JournalEntry;
       int result = newPlace.Id;
-      // int result = 0;
 
       //Assert
       Assert.AreEqual(1, result);
@@ -101,9 +141,17 @@ namespace Diary.Tests
     {
       //Arrange
       string cityName01 = "Boston";
-      string cityNamen02 = "New York";
-      Place newPlace1 = new Place(cityName01);
-      Place newPlace2 = new Place(cityName02);
+      string cityName02 = "Paris";
+      int duration01 = 3;
+      int duration02 = 4;
+      string travelPartner01 = "Fred";
+      string travelPartner02 = "Greg";
+      string journalEntry01 = "asdf";
+      string journalEntry02 = "lkjh";
+      int id01 = 1;
+      int id02 = 2;
+      Place newPlace1 = new Place(cityName01, duration01, travelPartner01, journalEntry01, id01);
+      Place newPlace2 = new Place(cityName02, duration02, travelPartner02, journalEntry02, id02);
 
       //Act
       Place result = Place.Find(1);
