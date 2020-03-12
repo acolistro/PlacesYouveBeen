@@ -1,0 +1,18 @@
+@using Diary.Models;
+
+<h1>Places I've Been</h1>
+@if (Model.Count == 0)
+{
+  <p>There are no Places in your list.</p>
+}
+<ul>
+  @foreach (Place place in Model)
+  {
+    <li>@place.CityName</li>  
+    <li>@place.Image</li>  
+    <li>@place.Duration</li>  
+    <li>@place.TravelPartner</li>  
+    <li>@place.JournalEntry</li>  
+  }
+</ul>
+<a href="/places/new">Add a new Place.</a>
