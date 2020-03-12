@@ -1,21 +1,22 @@
 using System.Collections.Generic;
-using System.Drawing.Image;
+using System.Drawing;
 
 namespace Diary.Models
 {
   public class Place
   {
     public string CityName { get; set; }
-    public byte[] Image { get; set; }
+    // public byte[] Image { get; set; }
     public int Duration { get; set; }
     public string TravelPartner { get; set; }
     public string JournalEntry { get; set; }
+    public int Id { get; set; }
     private static List<Place> _instances = new List<Place> {};
 
-    public Item (string cityName, byte[] image, int duration, string travelPartner, string journalEntry)
+    public Place (string cityName, int duration, string travelPartner, string journalEntry, int id)
     {
       CityName = cityName;
-      Image = image;
+      // Image = image;
       Duration = duration;
       TravelPartner = travelPartner;
       JournalEntry = journalEntry;
@@ -23,12 +24,12 @@ namespace Diary.Models
       Id = _instances.Count;
     }
 
-    public static Item Find(int searchId)
+    public static Place Find(int searchId)
     {
       return _instances[searchId-1];
     }
 
-    public static List<Item> GetAll()
+    public static List<Place> GetAll()
     {
       return _instances;
     }

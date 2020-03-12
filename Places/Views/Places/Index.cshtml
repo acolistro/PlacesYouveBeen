@@ -9,15 +9,14 @@
   @foreach (Place place in Model)
   {
     <li><a href='/places/@place.Id'>@place.CityName</a></li>
-    <li><a href='/places/@place.Id'>@place.Image</a></li>
     <li><a href='/places/@place.Id'>@place.Duration</a></li>
     <li><a href='/places/@place.Id'>@place.TravelPartner</a></li>
     <li><a href='/places/@place.Id'>@place.JournalEntry</a></li>
   }
 </ul>
 
-<a href="/items/new">Add a new item.</a>
+<a href="/places/new">Add a new place.</a>
 
-<form action="/items/delete" method="post">
-  <button type="submit" name="button">Clear All Items</button>
+<form action="/places/delete" method="post">
+  <button type="submit" name="button">Clear All Entries</button>
 </form>

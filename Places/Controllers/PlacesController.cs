@@ -21,9 +21,9 @@ namespace Diary.Controllers
     }
 
     [HttpPost("/places")]
-    public ActionResult Create(string description)
+    public ActionResult Create(string cityName, int duration, string travelPartner, string journalEntry, int id)
     {
-      Place myPlace = new Place(description);
+      Place myPlace = new Place(cityName, duration, travelPartner, journalEntry, id);
       return RedirectToAction("Index");
     }
 
@@ -37,7 +37,7 @@ namespace Diary.Controllers
     [HttpGet("/places/{id}")]
     public ActionResult Show(int id)
     {
-      Item foundPlace = Place.Find(id);
+      Place foundPlace = Place.Find(id);
       return View(foundPlace);
     }
 
