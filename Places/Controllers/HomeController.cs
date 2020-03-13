@@ -20,7 +20,7 @@ namespace Diary.Controllers
       return View();
     }
 
-    [HttpPost("home/places")]
+    [HttpPost("home/places/show")]
     public ActionResult Create(string cityName, int duration, string travelPartner, string journalEntry, int id)
     {
       Place myPlace = new Place(cityName, duration, travelPartner, journalEntry, id);
